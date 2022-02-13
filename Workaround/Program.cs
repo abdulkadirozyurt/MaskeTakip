@@ -82,8 +82,13 @@ namespace Workaround
             Person person1=new Person();
             person1.FirstName = "Abdulkadir";
             person1.LastName = "Özyurt";
-            person1.NationalIdentity = 46957819302;
-            person1.DateOfBirthYear = 2001;
+            person1.NationalIdentity = 12345678910;
+            person1.DateOfBirthYear = 1998;
+
+
+
+
+
 
 
             // artık arrayler az kullanılıyor onun yerine list.
