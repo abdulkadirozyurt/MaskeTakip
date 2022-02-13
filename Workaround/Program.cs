@@ -1,4 +1,5 @@
-﻿using Entities.Concrete;
+﻿using Business.Concrete;
+using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 
@@ -74,6 +75,17 @@ namespace Workaround
             Console.WriteLine("-------");
 
 
+
+
+
+
+            Person person1=new Person();
+            person1.FirstName = "Abdulkadir";
+            person1.LastName = "Özyurt";
+            person1.NationalIdentity = 46957819302;
+            person1.DateOfBirthYear = 2001;
+
+
             // artık arrayler az kullanılıyor onun yerine list.
 
             List<string> yeniSehirler1 = new List<string> { "Ankara 2", "İstanbul 2", "İzmir 2" }; //üç elemanlı bir liste. Aynı zamanda 3 elemanlı bir dizi. .NETFramework ile gelmiştir.
@@ -89,23 +101,12 @@ namespace Workaround
             }
 
 
-
-
-
-
             Console.WriteLine("---------");
 
 
+            PttManager pttManager = new PttManager(new PersonManager());
+            pttManager.GiveMask(person1);
 
-
-
-            int sayi1 = 10;
-            int sayi2 = 20;
-
-            sayi2 = sayi1;
-            sayi1 = 30;
-
-            Console.WriteLine(sayi2); //ekrana 10 yazar.
         }
 
         static void SelamVer(string isim = "no name")  // burası parametre. No name= default parameter dedik.

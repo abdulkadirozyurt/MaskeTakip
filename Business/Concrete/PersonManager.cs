@@ -1,5 +1,6 @@
 ﻿using Business.Abstract;
 using Entities.Concrete;
+using MernisServiceReference;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,10 +9,10 @@ using System.Threading.Tasks;
 
 namespace Business.Concrete
 {
-   
+
     // çıplak class kalmasın.
-    
-    
+
+
     public class PersonManager : IApplicantService
 
     {
@@ -27,31 +28,32 @@ namespace Business.Concrete
 
 
         }
-         
+
 
         public List<Person> GetList() // List of Person
         {
-            
 
 
 
-            
-            
+
+
+
             return null;                         // null: tanımlanmamış demek
         }
 
         public bool CheckPerson(Person person) // person validation yapacak. Mernisten kişiyi kontrol edecek
         {
+            KPSPublicSoapClient client = new KPSPublicSoapClient(KPSPublicSoapClient.EndpointConfiguration.KPSPublicSoap);
 
-
-            return true;
+            return client.TCKimlikNoDogrulaAsync(new TCKimlikNoDogrulaRequest(new TCKimlikNoDogrulaRequestBody(person.NationalIdentity, Ad: person.FirstName, Soyad: person.LastName, person.DateOfBirthYear)))
+              .Result.Body.TCKimlikNoDogrulaResult;
         }
 
 
 
 
 
-        
+
 
 
 

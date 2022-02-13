@@ -7,14 +7,12 @@ using System.Threading.Tasks;
 
 namespace Business.Abstract
 {
-    public interface IApplicantService 
+    public interface IApplicantService // iş sınıflarının interface'leri genelde böyle isimlendirilir.
         
+              
         
-        
-        
-        // interface
+        // interface içerisinde sadece metot imzası oluşturulabilir. başına public yazsak kızar.
     
-        
     
     {
         void ApplyForMask(Person person);

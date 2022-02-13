@@ -8,27 +8,31 @@ using Business.Abstract;
 
 namespace Business.Concrete
 {
-    public class PttManager
+    public class PttManager : ISupplierService
     {
+        private IApplicantService _applicantService; // field --> alt çizgi ile yazılır.
 
-        private IApplicantService _applicantService;
+        // sırf constructor da ulaşabilmek adına global alanda bir değişken tanımladık.
 
-        public PttManager()   // constructor ---> oluşturucu    pttmanager new'lendiğinde bu blok önce çalışır.
+        public PttManager(IApplicantService applicantService)             // constructor ---> oluşturucu.    pttmanager new'lendiğinde bu blok önce çalışır.
         {
-
+            _applicantService = applicantService;
         }
 
 
         public void GiveMask(Person person)  // pttnin  maskeyi verebilmesi için kişiyi kontrol etmesi lazım. Yani pttmanager in personmanager e ihtiyacı var
         {
             
-            PersonManager personManager = new PersonManager();
+            
 
-            if(personManager.CheckPerson(person)) // if bloğu şart bloğudur. şart doğruysa o bloğa girer.
-            {
-                // şartımız : eğer kişi doğru bir kişi ise, maske verilecek.
+            if(_applicantService.CheckPerson(person))
+            { 
 
                 Console.WriteLine(person.FirstName + "için maske verildi.");
+            }
+            else
+            {
+                Console.WriteLine("MASKE VERİLEMEZ.");
             }
 
         }
