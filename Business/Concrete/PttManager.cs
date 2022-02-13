@@ -22,11 +22,12 @@ namespace Business.Concrete
         public void GiveMask(Person person)  // pttnin  maskeyi verebilmesi için kişiyi kontrol etmesi lazım. Yani pttmanager in personmanager e ihtiyacı var
         {
             
-            
+            PersonManager personManager = new PersonManager();
 
-
-            if(personManager.CheckPerson(person)) // if bloğu şart bloğudur. şart  doğruysa o bloğa girer.
+            if(personManager.CheckPerson(person)) // if bloğu şart bloğudur. şart doğruysa o bloğa girer.
             {
+                // şartımız : eğer kişi doğru bir kişi ise, maske verilecek.
+
                 Console.WriteLine(person.FirstName + "için maske verildi.");
             }
 
@@ -38,5 +39,6 @@ namespace Business.Concrete
 
 
 
-// şu anda PersonManager'a bağımlı olduk. Yabancı vatandaşlar maske istediğinde sistem patlar.
+// eğer bir iş sınıfı başka bir iş sınıfını kullanırken onu new'liyorsa bu uygulama değişiklik yapılacağında direnç gösterir.
+// şu anda PersonManager'a bağımlı olduk. Yabancı vatandaşlar maske istediğinde sistem patlar..
 

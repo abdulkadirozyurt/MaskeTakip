@@ -1,10 +1,11 @@
-﻿using System;
+﻿using Entities.Concrete;
+using System;
 using System.Collections.Generic;
 
 namespace Workaround
 {
     class Program
-    { 
+    {
         static void Main(string[] args)
         {
             //Degiskenler();
@@ -47,7 +48,7 @@ namespace Workaround
 
 
 
-            for (int i = 0; i < ogrenciler.Length; i++)
+            for (int i = 0; i < ogrenciler.Length; i++) // Length ---> eleman sayısıdır. 
             {
                 Console.WriteLine(ogrenciler[i]);
             }
@@ -66,20 +67,23 @@ namespace Workaround
             string[] sehirler2 = new[] { "Bursa", "Antalya", "Diyarbakır" };
 
             sehirler2 = sehirler1; // değeri atamak olarak düşünme. sehirler2'nin referansı eşittir sehirler1'in referansı diye okuruz.
-            sehirler1[0] ="Adana";
+            sehirler1[0] = "Adana";
 
             Console.WriteLine(sehirler2[0]);
 
             Console.WriteLine("-------");
 
 
-            List<string> yeniSehirler1 = new List<string> { "Ankara 2","İstanbul 2","İzmir 2"}; //üç elemanlı bir liste. Aynı zamanda 3 elemanlı bir dizi. .NETFramework ile gelmiştir.
-            yeniSehirler1.Add("Adana 2");
+            // artık arrayler az kullanılıyor onun yerine list.
 
-           // list bir class tır.
-                
-            
-            foreach (string sehir in yeniSehirler1)
+            List<string> yeniSehirler1 = new List<string> { "Ankara 2", "İstanbul 2", "İzmir 2" }; //üç elemanlı bir liste. Aynı zamanda 3 elemanlı bir dizi. .NETFramework ile gelmiştir.
+            yeniSehirler1.Add("Adana 2");
+            yeniSehirler1.Add("Trabzon");
+
+            // list bir class tır.
+
+
+            foreach (string sehir in yeniSehirler1)  // (sehir) ---> alias = takma isim
             {
                 Console.WriteLine(sehir);
             }
@@ -98,7 +102,7 @@ namespace Workaround
             int sayi1 = 10;
             int sayi2 = 20;
 
-            sayi2=sayi1;
+            sayi2 = sayi1;
             sayi1 = 30;
 
             Console.WriteLine(sayi2); //ekrana 10 yazar.
