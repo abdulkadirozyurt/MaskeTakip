@@ -1,4 +1,5 @@
-﻿using Entities.Concrete;
+﻿using Business.Concrete;
+using Entities.Concrete;
 using System.Collections;
 
 
@@ -6,59 +7,15 @@ using System.Collections;
 
 
 
-//string[] students = new string[3];
-
-//students[0] = "Engin";
-//students[1] = "Abdulkadir";
-//students[2] = "Hasan";
-
-//students = new string[4];
-//students[3] = "Emirhan";
-
-//for (int i = 0; i < students.Length; i++)
-//{
-//    Console.WriteLine(students[i]);
-//    Console.WriteLine();
-//}
+Person person1 = new Person();
+person1.FirstName = "Abdulkadir";
+person1.LastName = "Özyurt";
+person1.NationalIdentity = 1111111111;
+person1.DateOfBirthYear = 2001;
 
 
-//string[] cities1 = new[] { "Ankara", "İstanbul", "İzmir" };
-//string[] cities2 = new[] { "Bursa", "Antalya", "Diyarbakır" };
-
-//cities2 = cities1;
-//cities1[0] = "Adana";
-
-//foreach (var item in cities2)
-//{
-//    Console.WriteLine(item);
-//}
-
-//// object instantaation
-//Person person = new() { FirstName = "Abdulkadir" };
-
-
-
-
-
-
-
-
-
-
-
-
-List<string> cities3 = new List<string> { "Ankara1", "İstanbul1", "İzmir1" };
-
-cities3.Add("İzmir1");
-
-
-
-
-
-
-
-
-Console.WriteLine("****************");
+PttManager pttManager = new PttManager(new PersonManager());
+pttManager.GiveMask(person1);
 
 
 
@@ -80,17 +37,16 @@ Console.WriteLine("****************");
 
 
 
-
-
-
-
+Console.WriteLine("**************************************************************************************");
+Console.WriteLine();
+Console.WriteLine();
 
 
 
 MyList<string> brandList = new MyList<string>();
 
 brandList.Add("Nike");
-Console.WriteLine(  );
+Console.WriteLine();
 brandList.Add("adidas");
 
 foreach (var brand in brandList)
