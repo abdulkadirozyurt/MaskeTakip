@@ -1,5 +1,4 @@
-﻿using Business.Abstract;
-using Entities.Concrete;
+﻿using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Business.Concrete;
 
-public class PersonManager : IApplicantService
+public class PersonManager
 {
     public void ApplyForMask(Person person)
     {
@@ -21,11 +20,6 @@ public class PersonManager : IApplicantService
         return null;
     }
 
-    public bool CheckPerson(Person person)
-    {
-        return true;
-    }
 
-
-
+    
 }
